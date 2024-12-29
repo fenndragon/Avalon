@@ -70,7 +70,7 @@ public sealed class DragonRiftSystem : EntitySystem
             if (comp.State < DragonRiftState.AlmostFinished && comp.Accumulator > comp.MaxAccumulator / 2f)
             {
                 comp.State = DragonRiftState.AlmostFinished;
-                Dirty(comp);
+                Dirty(uid, comp);
 
                 var location = xform.LocalPosition;
                 _announcer.SendAnnouncement(_announcer.GetAnnouncementId("CarpRift"), Filter.Broadcast(),
